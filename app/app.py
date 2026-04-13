@@ -2,17 +2,17 @@ import streamlit as st
 import pandas as pd
 import joblib
 
-# load model
+#load model
 model = joblib.load("models/churn_model.pkl")
 
 st.title("Customer Churn Prediction")
 
-# inputs 
+#inputs 
 tenure = st.number_input("Tenure", 0, 100)
 monthly_charges = st.number_input("Monthly Charges", 0, 10000)
 total_charges = st.number_input("Total Charges", 0, 100000)
 
-# prediction
+#prediction
 if st.button("Predict"):
     input_data = pd.DataFrame({
         "tenure": [tenure],

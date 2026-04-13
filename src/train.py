@@ -37,7 +37,7 @@ def train_model():
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
     
-    # scaling
+    #scaling
     
     scaler = StandardScaler()
 
@@ -45,17 +45,17 @@ def train_model():
     X_test = scaler.transform(X_test)
 
 
-# convert back to DataFrame 
+
     X_train = pd.DataFrame(X_train, columns=X.columns)
     X_test = pd.DataFrame(X_test, columns=X.columns)
     
-    # Logistic Regression
+    #Logistic Regression
     lr_model = LogisticRegression(max_iter=1000)
     lr_model.fit(X_train, y_train)
     lr_pred = lr_model.predict(X_test)
     lr_acc = accuracy_score(y_test, lr_pred)
 
-    # Random Forest
+    #Random Forest
     rf_model = RandomForestClassifier()
     rf_model.fit(X_train, y_train)
     rf_pred = rf_model.predict(X_test)
